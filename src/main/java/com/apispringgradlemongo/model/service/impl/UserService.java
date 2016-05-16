@@ -30,16 +30,19 @@ public class UserService implements IUserService {
 		return user;
 	}
 
+	@Override
 	public List<User> findAll() {
 		List<User> users = new ArrayList<User>();
 		users = userRepository.findAll();
 		return users;
 	}
 
+	@Override
 	public User create(final User user) {
 		return userRepository.insert(user);
 	}
 
+	@Override
 	public User update(User user) {
 		if (userRepository.exists(user.getId())) {
 			user = userRepository.save(user);
@@ -64,17 +67,4 @@ public class UserService implements IUserService {
 	public void delete(User entity) {
 		userRepository.delete(entity);
 	}
-
-	@Override
-	public List<User> findByName(String name) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<User> findByEmail(String email) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 }
